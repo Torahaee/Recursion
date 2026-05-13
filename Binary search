@@ -1,0 +1,28 @@
+1>
+#include<iostream>
+using namespace std;
+
+int bs(int a[], int l, int h, int x){
+    if(l>h) return -1;
+    
+    int m = (l+h)/2;
+    
+    if(a[m] == x) return m;
+    if(x < a[m]) return bs(a, l, m-1, x);
+    
+    return bs(a, m+1, h, x);
+}
+
+int main(){
+    int a[] = {2,5,7,2,9};
+    int x;
+    
+    cin>>x;
+    
+    int ans = bs(a, 0, 4, x);
+    
+    if(ans != -1)
+        cout<< "Found at index " << ans;
+    else
+        cout<< "Not Found";
+}
